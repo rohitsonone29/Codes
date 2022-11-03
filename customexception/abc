@@ -60,3 +60,19 @@ public class JdbcEx {
     }
  
 }
+
+
+
+
+
+
+
+CREATE DATABASE restapi;
+USE restapi;
+show tables;
+select * from student1;
+create table student1 (studid int,studname varchar(30),studsurname varchar(30));
+insert into student1 values(1,'Namrata','Marathe');
+insert into student1 values(2,'Arjun','Marathe');
+insert into student1 values(3,'Rahul','Marathe');
+commit;
