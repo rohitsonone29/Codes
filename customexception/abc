@@ -84,3 +84,37 @@ commit;
   http://maven.apache.org/xsd/settings-1.0.0.xsd"><localRepository>
     C:/Documents and Settings/Administrator/.m2/repository
   </localRepository><interactiveMode>true</interactiveMode><usePluginRegistry>false</usePluginRegistry><offline>false</offline></settings>
+  
+  
+  
+  
+  
+  
+  <plugin>
+<artifactId>maven-jar-plugin</artifactId>
+<version>3.0.2</version>
+<configuration>
+<outputDirectory>c://tempjar</outputDirectory>
+<finalName>myprojcompile</finalName>
+<attach>false</attach>
+</configuration>
+</plugin>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-source-plugin</artifactId>
+<executions>
+<execution>
+<id>attach-sources</id>
+<goals>
+<goal>jar</goal>
+</goals>
+</execution>
+
+</executions>
+<configuration>
+<outputDirectory>c://tempjar</outputDirectory>
+<finalName>myproj</finalName>
+<attach>false</attach>
+</configuration>
+</plugin>
