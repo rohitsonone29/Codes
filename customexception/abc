@@ -76,3 +76,11 @@ insert into student1 values(1,'Namrata','Marathe');
 insert into student1 values(2,'Arjun','Marathe');
 insert into student1 values(3,'Rahul','Marathe');
 commit;
+
+
+
+
+<settings xmlns="http://maven.apache.org/POM/4.0.0"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+  http://maven.apache.org/xsd/settings-1.0.0.xsd"><localRepository>
+    C:/Documents and Settings/Administrator/.m2/repository
+  </localRepository><interactiveMode>true</interactiveMode><usePluginRegistry>false</usePluginRegistry><offline>false</offline></settings>
