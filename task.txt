@@ -1,0 +1,50 @@
+package classobjects;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * Output:
+		 * {Apple={Small=1}, Mango={Small=1, Large=1}, Orange={Small=1, Large=2}}*/
+		
+		
+	}
+
+	public static List<Fruit7N> fruits() {
+		return Arrays.asList(    
+				new Fruit7N("Apple", ""),
+				new Fruit7N("Apple", "Small"),  
+				new Fruit7N("Mango", "Small"),            
+				new Fruit7N(null, "Medium"),            
+				new Fruit7N("Orange", ""),            
+				new Fruit7N("Mango", "Large"),            
+				new Fruit7N("Orange", "Small"),            
+				new Fruit7N("Mango", null),            
+				new Fruit7N("Orange", "Large"),            
+				new Fruit7N("Orange", "Large")    );}
+}
+
+class Fruit7N {    
+
+	String name; 
+	String size;
+
+	public Fruit7N(String name, String size) 
+	{        
+		this.name = name;        
+		this.size = size;    	
+	}    
+	@Override
+	public String toString() 
+	{        
+		return "Fruit{" + "name='" + name + '\'' + ", size='" + size + '\'' + '}';   
+	}
+}
+
