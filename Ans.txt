@@ -1,0 +1,108 @@
+package tictactoe;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class Test {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        /*
+         * Output:
+         * {Apple={Small=1}, Mango={Small=1, Large=1}, Orange={Small=1, Large=2}}*/
+        Map<String, List<Fruit7N>> fruit7NMap = new HashMap<>();
+
+        List<Fruit7N> list = fruits();
+        list = list
+                .stream()
+                .filter(fruit7N -> Objects.nonNull(fruit7N.name))
+                .filter(fruit7N -> Objects.nonNull(fruit7N.size))
+                .filter(fruit7N -> !fruit7N.size.isEmpty())
+                .collect(Collectors.toList());
+
+        Iterator<Fruit7N> iterator = list.listIterator();
+        while (iterator.hasNext()) {
+            Fruit7N fruit7N = iterator.next();
+            if (!fruit7NMap.containsKey(fruit7N.name)) {
+                fruit7NMap.put(fruit7N.name, new ArrayList<>(Arrays.asList(fruit7N)));
+            }
+            else {
+                List<Fruit7N> li = fruit7NMap.get(fruit7N.name);
+                li.add(fruit7N);
+                fruit7NMap.put(fruit7N.name, li);
+            }
+        }
+
+//        fruit7NMap.forEach((s, fruit7NS) -> System.out.println(s + " -> " + Arrays.toString(fruit7NS.toArray())));
+
+        StringBuilder result = new StringBuilder("{");
+
+        String sss = "{";
+
+        fruit7NMap.forEach((s, fruit7NS) -> {
+            List<Fruit7N> l = fruit7NS;
+//            System.out.print(s + "={");
+            result.append(s).append("={");
+           long small = l.stream()
+                   .filter(fruit7N -> fruit7N.size == "Small")
+                   .count();
+
+           long large = l.stream()
+                   .filter(fruit7N -> fruit7N.size == "Large")
+                   .count();
+           //          * {Apple={Small=1}, Mango={Small=1, Large=1}, Orange={Small=1, Large=2}}*/
+
+            if (small > 0) {
+                if (large <= 0) {
+//                    System.out.print("Small=" + small + "}, ");
+                    result.append("Small=").append(small).append("}, ");
+                } else {
+//                    System.out.print("Small=" + small + ", ");
+                    result.append("Small=").append(small).append(", ");
+                }
+            }
+
+            if (large > 0) {
+//                System.out.print("Large=" + large + "}, ");
+                result.append("Large=").append(large).append("}, ");
+            }
+//            System.out.println(" res + " + result);
+        });
+
+        sss = sss + result.toString();
+        sss = sss.substring(0, sss.length()-2);
+        sss = sss + "}";
+        System.out.println(sss);
+    }
+
+    public static List<Fruit7N> fruits() {
+        return Arrays.asList(
+                new Fruit7N("Apple", ""),
+                new Fruit7N("Apple", "Small"),
+                new Fruit7N("Mango", "Small"),
+                new Fruit7N(null, "Medium"),
+                new Fruit7N("Orange", ""),
+                new Fruit7N("Mango", "Large"),
+                new Fruit7N("Orange", "Small"),
+                new Fruit7N("Mango", null),
+                new Fruit7N("Orange", "Large"),
+                new Fruit7N("Orange", "Large"));
+    }
+}
+
+class Fruit7N {
+
+    String name;
+    String size;
+
+    public Fruit7N(String name, String size) {
+        this.name = name;
+        this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "Fruit{" + "name='" + name + '\'' + ", size='" + size + '\'' + '}';
+    }
+}
