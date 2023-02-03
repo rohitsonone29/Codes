@@ -1,0 +1,67 @@
+package com.test;
+
+import java.util.Arrays;
+
+import java.util.function.Predicate;
+
+public class StrignProblem {
+
+	public static void main(String[] args) {		
+
+		
+
+		
+
+		String str = "Facebook Amazon VWITS Google Capg@mini Info@sys ";
+
+		
+
+		String arr[] = str.split(" ");
+
+		
+
+		Predicate<String > p = s -> !s.contains("@");
+
+		
+
+		filtered(arr, p);
+
+		
+
+		
+
+	}
+
+	private static void filtered(String arr[], Predicate<String> p) {
+
+	 
+
+		String arr1[] = new String[arr.length-2];
+
+		for(int i=0;i<arr.length;i++)
+
+		{
+
+			if(p.test(arr[i]))
+
+			      arr1[i]= arr[i];
+
+		}
+
+		int cnt =1;
+
+		Arrays.sort(arr1);
+
+		for(int i = arr1.length-1;i>=0;i--)
+
+		{
+
+			System.out.println(arr1[i]+" - "+cnt++);
+
+		}
+
+		
+
+	}
+
+}
